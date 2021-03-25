@@ -38,21 +38,40 @@ let pets = [
 
 //Usando Arrow Functions:
 
-// const listarPets = () => {
-//     for(let pet of pets){
-//         //console.log(pets[i].nome);
-//         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
-//     }
-// }
+let adicionarPet = () => {
+    let pet =
+        {
+            nome: 'Perna-longa',
+            tipo: 'coelho',
+            idade: 2,
+            raca: 'Mini Holandês',
+            peso: 2,
+            tutor: 'Maria',
+            contato: '(81) 99685-8709',
+            vacinado: false,
+            servicos: ['banho', 'corte de unhas']    
+        };
 
-// listarPets();
+    pets.push(pet);
+}
+
+adicionarPet();
+
+const listarPets = () => {
+    for(let pet of pets){
+        //console.log(pets[i].nome);
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
+    }
+}
+
+listarPets();
 
 const vacinarPets = (pet) => {
     
         if(pet.vacinado == false)
         {
             pet.vacinado = true;
-            console.log(`\n${pet.nome} foi vacinado com sucesso!\n`);
+            console.log(`\n${pet.nome} foi vacinado com sucesso!`);
         }
         else
             console.log(`\nOpa, ${pet.nome} foi Vacinado`);
