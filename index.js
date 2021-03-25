@@ -39,11 +39,9 @@ let pets = [
 //Usando Arrow Functions:
 
 const listarPets = () => {
-    for(let i=0; i < pets.length; i++){
+    for(let pet of pets){
         //console.log(pets[i].nome);
-        console.log(`Nome do pet: ${pets[i].nome},
-                    \nRaça do pet: ${pets[i].raca},
-                    \nTutor: ${pets[i].tutor};`); //lembrar da crase
+        console.log(`Nome do pet: ${pet.nome},\nRaça do pet: ${pet.raca},\nTutor: ${pet.tutor};\n`); //lembrar da crase
     }
 }
 
