@@ -20,7 +20,7 @@ let pets = [
         peso: 50,
         tutor: 'Salsicha',
         contato: '(11) 95670-1029',
-        vacinado: true,
+        vacinado: false,
         servicos: ['banho']    
     },
     {
@@ -31,20 +31,49 @@ let pets = [
         peso: 2.5,
         tutor: 'Sabrina',
         contato: '(81) 97597-5257',
-        vacinado: true,
+        vacinado: false,
         servicos: ['banho', 'corte de unhas']    
     }
 ];
 
 //Usando Arrow Functions:
 
-const listarPets = () => {
-    for(let pet of pets){
-        //console.log(pets[i].nome);
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
-    }
+// const listarPets = () => {
+//     for(let pet of pets){
+//         //console.log(pets[i].nome);
+//         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
+//     }
+// }
+
+// listarPets();
+
+const vacinarPets = (pet) => {
+    
+        if(pet.vacinado == false)
+        {
+            pet.vacinado = true;
+            console.log(`\n${pet.nome} foi vacinado com sucesso!\n`);
+        }
+        else
+            console.log(`\nOpa, ${pet.nome} foi Vacinado`);
 }
 
-listarPets();
+vacinarPets(pets[2]);
 
-// console.log(pets);
+const campanhaVacina = () => {
+   
+    let i=0;
+    for(let pet of pets)
+    {
+        if(pet.vacinado == false)
+        {
+            pet.vacinado = true;
+            i++;         
+        }
+    }
+    
+    console.log(`\n${i} pets foram vacinados nessa campanha!`);
+}
+
+campanhaVacina();
+
