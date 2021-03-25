@@ -10,7 +10,10 @@ let pets = [
         tutor: 'Tom',
         contato: '(81) 98746-0809',
         vacinado: true,
-        servicos: ['banho', 'tosa']    
+        servicos: [
+            {tipoServ:'banho', data:'2/22/2021'},
+            {tipoServ:'tosa', data:'1/30/2021'}
+        ]    
     },
     {
         nome: 'Scooby-Doo',
@@ -21,7 +24,9 @@ let pets = [
         tutor: 'Salsicha',
         contato: '(11) 95670-1029',
         vacinado: false,
-        servicos: ['banho']    
+        servicos: [
+            {tipoServ:'banho', data: '2/20/2021'}
+        ]    
     },
     {
         nome: 'Salem',
@@ -32,7 +37,10 @@ let pets = [
         tutor: 'Sabrina',
         contato: '(81) 97597-5257',
         vacinado: false,
-        servicos: ['banho', 'corte de unhas']    
+        servicos: [
+            {tipoServ:'banho', data:'3/20/2021'},
+            {tipoServ: 'corte de unhas', data:'1/20/2021'}
+        ]    
     }
 ];
 
@@ -49,7 +57,9 @@ let adicionarPet = () => {
             tutor: 'Maria',
             contato: '(81) 99685-8709',
             vacinado: false,
-            servicos: ['corte de unhas']    
+            servicos: [
+                {tipoServ:'corte de unhas', data:'3/10/2021'}
+        ]    
         };
 
     pets.push(pet);
@@ -96,28 +106,37 @@ adicionarPet();
 
 // campanhaVacina();
 
-const darBanhoPet = (pet) => {
-    pet.servicos.push('banho');
-    console.log(`\n${pet.nome} está de banho tomado!`);
-}
+// const darBanhoPet = (pet) => {
+//     pet.servicos.push('banho');
+//     console.log(`\n${pet.nome} está de banho tomado!`);
+// }
 
-darBanhoPet(pets[3]);
+// darBanhoPet(pets[3]);
 
-const tosarPet = (pet) => {
-    pet.servicos.push('tosar');
-    console.log(`\n${pet.nome} está com o cabelinho na régua!`);
-}
+// const tosarPet = (pet) => {
+//     pet.servicos.push('tosar');
+//     console.log(`\n${pet.nome} está com o cabelinho na régua!`);
+// }
 
-tosarPet(pets[1]);
+// tosarPet(pets[1]);
 
 const apararUnhasPet = (pet) => {
-    pet.servicos.push('corte de unhas');
-    console.log(`\n${pet.nome} está de unhas aparadas!`);
+    const now = new Date();
+
+    let servico = { 
+        tipoServ: 'corte de unhas',
+        data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+    };
+    
+    pet.servicos.push(servico);
+   
+    console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
+    console.log(pet.servicos);
 }
 
 apararUnhasPet(pets[1]);
 
-for(let pet of pets)
-{
-    console.log(pet.servicos);
-}
+// for(let pet of pets)
+// {
+//     console.log(pet.servicos);
+// }
