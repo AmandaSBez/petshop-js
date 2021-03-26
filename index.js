@@ -1,5 +1,6 @@
 const moment = require('moment'); // require
-const pets = require('./dadosPet.json');
+const bancoDados = require('./dadosPet.json');
+let pets = bancoDados.pets;
 
 const nomePetshp = 'Petshop Avanade';
 
@@ -65,7 +66,7 @@ let adicionarPet = () => {
             ]    
         };
 
-    pets.push(pet);
+    pets.push(bancoDados.pets);
 }
 
 adicionarPet();
