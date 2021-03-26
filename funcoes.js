@@ -9,9 +9,13 @@ const atenderCliente = (pet, servico) => {
     console.log('Tchau, até mais!');
 }
 
-const darBanho = () => {
-    console.log('dando banho no pet...');
-}
+// const darBanho = () => {
+//     pet.servicos.push({
+//         'tipoServ':'banho',
+//         'data':moment().format('DD-MM-YYYY');
+//     });   
+//     console.log('dando banho no pet...');
+// }
 
 const apararUnhasPet = () => {
     console.log('aparando unhas...');

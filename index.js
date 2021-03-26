@@ -66,7 +66,7 @@ let adicionarPet = () => {
             ]    
         };
 
-    pets.push(bancoDados.pets);
+    pets.push(pet);
 }
 
 adicionarPet();
@@ -76,9 +76,27 @@ adicionarPet();
 //         //console.log(pets[i].nome);
 //         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
 //     }
-// }
+// }/
 
-// listarPets();
+const listarPets = () => {
+    for(let pet of pets){
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
+        
+        for(const servico of pet.servicos){
+            console.log(`${servico.data} - ${servico.tipoServ}`);
+        }
+    }
+}
+
+listarPets();
+
+const darBanho = () => {
+    pet.servicos.push({
+        'tipoServ':'banho',
+        'data':moment().format('DD-MM-YYYY')
+    });   
+    console.log('dando banho no pet...');
+}
 
 // const vacinarPets = (pet) => {
     
@@ -147,21 +165,21 @@ apararUnhasPet(pets[2]);
 
 
 //FUNCAO DE PESQUISA DE ANGELO!
-const vacinarPet = (petNome) => {
-    let pet = pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
-    if(pet.vacinado == false){
-        pet.vacinado = true;
-        console.log(`\n\n${pet.nome} foi vacinado com sucesso!`);
-    }
-    else{
-         console.log(`\n\nOps, ${pet.nome} já está vacinado!`);
-    };
-};
+//const vacinarPet = (petNome) => {
+//     let pet = pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
+//     if(pet.vacinado == false){
+//         pet.vacinado = true;
+//         console.log(`\n\n${pet.nome} foi vacinado com sucesso!`);
+//     }
+//     else{
+//          console.log(`\n\nOps, ${pet.nome} já está vacinado!`);
+//     };
+// };
 
-vacinarPet(petNome = 'Orion');
+// vacinarPet(petNome = 'Orion');
 
 //Mostrar com seria em JSON:
 
 //let testeJson = JSON.stringify(pets);
 //console.log(testeJson);
-console.log(bancoDados.pets[1]);
+//console.log(bancoDados.pets[1]);
