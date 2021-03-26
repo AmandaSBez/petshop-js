@@ -69,7 +69,7 @@ let adicionarPet = () => {
     //PORQUE ARQUIVOS JSON SAO ARQUIVOS QUE LISTAM OBJETOS, ENTAO NAO PRECISA DO STRINGFY
 
     pets.push(pet);
-   // console.log(pets); //LISTANDO ESTILO JSON
+    //console.log(pets); //LISTANDO ESTILO JSON
 }
 
 adicionarPet();
@@ -93,15 +93,47 @@ const listarPets = () => {
     }
 }
 
-listarPets(); // LISTANDO BONITINHO
+//listarPets(); // LISTANDO BONITINHO
 
-// const darBanho = () => {
-//     pet.servicos.push({
-//         'tipoServ':'banho',
-//         'data':moment().format('DD-MM-YYYY')
-//     });   
-//     console.log('dando banho no pet...');
-// }
+const darBanho = (pet) => {
+    let servico = { 
+        tipoServ: 'Banho',
+        data: moment().format('DD-MM-YYYY')
+    };
+    pet.servicos.push(servico);
+    console.log(`${servico.data} : dando banho no pet...`);
+}
+
+const tosarPet = (pet) => {
+    let servico = { 
+        tipoServ: 'tosar',
+        data: moment().format('DD-MM-YYYY')
+    };
+    pet.servicos.push(servico); 
+
+    console.log(`${servico.data} : ${pet.nome} está com o cabelinho na régua!`);
+}
+
+const apararUnhasPet = (pet) => {
+    //const now = new Date(); 
+    let servico = { 
+        tipoServ: 'corte de unhas',
+        data: moment().format('DD-MM-YYYY')
+     //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`    
+    };
+     pet.servicos.push(servico);  
+  // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
+    console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
+}
+
+const atenderCliente = (pet, funcao) => {
+    console.log(`\nAtendendo ${pet.nome}`)
+    funcao(pet);
+    console.log("Fim do atendimento");
+}
+
+atenderCliente(pets[1], darBanho);
+console.log(pets[1].servicos);
 
 // const vacinarPets = (pet) => {
     
@@ -140,28 +172,6 @@ listarPets(); // LISTANDO BONITINHO
 
 // darBanhoPet(pets[3]);
 
-// const tosarPet = (pet) => {
-//     pet.servicos.push('tosar');
-//     console.log(`\n${pet.nome} está com o cabelinho na régua!`);
-// }
-
-// tosarPet(pets[1]);
-
-// const apararUnhasPet = (pet) => {
-//     //const now = new Date();
-   
-//     let servico = { 
-//         tipoServ: 'corte de unhas',
-//         data: moment().format('DD-MM-YYYY')
-//      //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
-       
-//     };
-//      pet.servicos.push(servico);  
-//   // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
-//     console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
-// }
-
-//apararUnhasPet(pets[2]);
 
 // for(let pet of pets)
 // {
