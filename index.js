@@ -164,4 +164,4 @@ vacinarPet(petNome = 'Orion');
 
 //let testeJson = JSON.stringify(pets);
 //console.log(testeJson);
-//console.log(pets[1].servicos);
+console.log(bancoDados.pets[1]);
