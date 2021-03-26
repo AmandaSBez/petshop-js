@@ -1,3 +1,5 @@
+const moment = require('moment'); // require
+
 const nomePetshp = 'Petshop Avanade';
 
 let pets = [
@@ -11,8 +13,8 @@ let pets = [
         contato: '(81) 98746-0809',
         vacinado: true,
         servicos: [
-            {tipoServ:'banho', data:'2/22/2021'},
-            {tipoServ:'tosa', data:'1/30/2021'}
+            {tipoServ:'banho', data:'2-22-2021'},
+            {tipoServ:'tosa', data:'1-30-2021'}
         ]    
     },
     {
@@ -25,7 +27,7 @@ let pets = [
         contato: '(11) 95670-1029',
         vacinado: false,
         servicos: [
-            {tipoServ:'banho', data: '2/20/2021'}
+            {tipoServ:'banho', data: '2-20-2021'}
         ]    
     },
     {
@@ -38,8 +40,8 @@ let pets = [
         contato: '(81) 97597-5257',
         vacinado: false,
         servicos: [
-            {tipoServ:'banho', data:'3/20/2021'},
-            {tipoServ: 'corte de unhas', data:'1/20/2021'}
+            {tipoServ:'banho', data:'3-20-2021'},
+            {tipoServ: 'corte de unhas', data:'1-20-2021'}
         ]    
     }
 ];
@@ -58,8 +60,8 @@ let adicionarPet = () => {
             contato: '(81) 99685-8709',
             vacinado: false,
             servicos: [
-                {tipoServ:'corte de unhas', data:'3/10/2021'}
-        ]    
+                {tipoServ:'corte de unhas', data:'3-10-2021'}
+            ]    
         };
 
     pets.push(pet);
@@ -121,22 +123,37 @@ adicionarPet();
 // tosarPet(pets[1]);
 
 const apararUnhasPet = (pet) => {
-    const now = new Date();
-
+    //const now = new Date();
+   
     let servico = { 
         tipoServ: 'corte de unhas',
-        data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+        data: moment().format('DD-MM-YYYY')
+     //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+       
     };
-    
-    pet.servicos.push(servico);
-   
-    console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
-    console.log(pet.servicos);
+     pet.servicos.push(servico);  
+  // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
+    console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
 }
 
-apararUnhasPet(pets[1]);
+apararUnhasPet(pets[2]);
 
 // for(let pet of pets)
 // {
 //     console.log(pet.servicos);
 // }
+
+
+//FUNCAO DE PESQUISA DE ANGELO!
+const vacinarPet = (petNome) => {
+    let pet = pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
+    if(pet.vacinado == false){
+        pet.vacinado = true;
+        console.log(`\n\n${pet.nome} foi vacinado com sucesso!`);
+    }
+    else{
+         console.log(`\n\nOps, ${pet.nome} já está vacinado!`);
+    };
+};
+
+vacinarPet(petNome = 'Orion');
