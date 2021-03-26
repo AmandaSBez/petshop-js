@@ -31,17 +31,8 @@
             "contato":"(81) 97597-5257",
             "vacinado":false,
             "servicos":[{"tipoServ":"banho","data":"3-20-2021"},{"tipoServ":"corte de unhas","data":"1-20-2021"},{"tipoServ":"corte de unhas","data":"26-03-2021"}]
-        },
-        {
-            "nome":"Perna-longa",
-            "tipo":"coelho",
-            "idade":2,
-            "raca":"Mini Holandês",
-            "peso":2,"tutor":"Maria",
-            "contato":"(81) 99685-8709",
-            "vacinado":false,
-            "servicos":[{"tipoServ":"corte de unhas","data":"3-10-2021"}]
         }
+        
     ]
 
 }

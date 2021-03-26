@@ -1,5 +1,5 @@
 const moment = require('moment'); // require
-const bancoDados = require('./dadosPet.json');
+var bancoDados = require('./dadosPet.json');
 let pets = bancoDados.pets;
 
 const nomePetshp = 'Petshop Avanade';
@@ -65,8 +65,10 @@ let adicionarPet = () => {
                 {tipoServ:'corte de unhas', data:'3-10-2021'}
             ]    
         };
-
+    //BASICAMENTE VOCE TA ADD UM OBJETO NO ARQUIVO JSON, O QUE EH O CORRETO
+    //PORQUE ARQUIVOS JSON SAO ARQUIVOS QUE LISTAM OBJETOS, ENTAO NAO PRECISA DO STRINGFY
     pets.push(pet);
+    console.log(pets); //LISTANDO ESTILO JSON
 }
 
 adicionarPet();
@@ -82,21 +84,21 @@ const listarPets = () => {
     for(let pet of pets){
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
         
-        for(const servico of pet.servicos){
-            console.log(`${servico.data} - ${servico.tipoServ}`);
-        }
+        // for(const servico of pet.servicos){
+        //     console.log(`${servico.data} - ${servico.tipoServ}`);
+        // }
     }
 }
 
-listarPets();
+listarPets(); // LISTANDO BONITINHO
 
-const darBanho = () => {
-    pet.servicos.push({
-        'tipoServ':'banho',
-        'data':moment().format('DD-MM-YYYY')
-    });   
-    console.log('dando banho no pet...');
-}
+// const darBanho = () => {
+//     pet.servicos.push({
+//         'tipoServ':'banho',
+//         'data':moment().format('DD-MM-YYYY')
+//     });   
+//     console.log('dando banho no pet...');
+// }
 
 // const vacinarPets = (pet) => {
     
@@ -142,21 +144,21 @@ const darBanho = () => {
 
 // tosarPet(pets[1]);
 
-const apararUnhasPet = (pet) => {
-    //const now = new Date();
+// const apararUnhasPet = (pet) => {
+//     //const now = new Date();
    
-    let servico = { 
-        tipoServ: 'corte de unhas',
-        data: moment().format('DD-MM-YYYY')
-     //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
+//     let servico = { 
+//         tipoServ: 'corte de unhas',
+//         data: moment().format('DD-MM-YYYY')
+//      //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`
        
-    };
-     pet.servicos.push(servico);  
-  // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
-    console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
-}
+//     };
+//      pet.servicos.push(servico);  
+//   // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
+//     console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
+// }
 
-apararUnhasPet(pets[2]);
+//apararUnhasPet(pets[2]);
 
 // for(let pet of pets)
 // {
