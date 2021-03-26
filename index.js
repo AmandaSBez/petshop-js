@@ -67,8 +67,9 @@ let adicionarPet = () => {
         };
     //BASICAMENTE VOCE TA ADD UM OBJETO NO ARQUIVO JSON, O QUE EH O CORRETO
     //PORQUE ARQUIVOS JSON SAO ARQUIVOS QUE LISTAM OBJETOS, ENTAO NAO PRECISA DO STRINGFY
+
     pets.push(pet);
-    console.log(pets); //LISTANDO ESTILO JSON
+   // console.log(pets); //LISTANDO ESTILO JSON
 }
 
 adicionarPet();
@@ -82,11 +83,13 @@ adicionarPet();
 
 const listarPets = () => {
     for(let pet of pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`); //lembrar da crase
         
         // for(const servico of pet.servicos){
         //     console.log(`${servico.data} - ${servico.tipoServ}`);
         // }
+
+        (pet.vacinado) ? console.log("Vacinado;\n") : console.log("Não vacinado;\n");
     }
 }
 
