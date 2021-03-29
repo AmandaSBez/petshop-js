@@ -125,25 +125,25 @@ const darBanho = (pet) => {
 }
 
 const tosarPet = (pet) => {
-    let servico = { 
+    pet.servicos.push({ 
         tipoServ: 'tosar',
         data: moment().format('DD-MM-YYYY')
-    };
-    pet.servicos.push(servico); 
-
-    console.log(`${servico.data} : ${pet.nome} está com o cabelinho na régua!`);
+    });
+     
+    atualizarBanco();
+    console.log(`${pet.servicos.data} : ${pet.nome} está com o cabelinho na régua!`);
 }
 
 const apararUnhasPet = (pet) => {
     //const now = new Date(); 
-    let servico = { 
+    pet.servicos.push({ 
         tipoServ: 'corte de unhas',
         data: moment().format('DD-MM-YYYY')
      //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`    
-    };
-     pet.servicos.push(servico);  
+    });
+     atualizarBanco();  
   // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
-    console.log(`${servico.data} : ${pet.nome} está de unhas aparadas!`);
+    console.log(`${pet.servicos.data} : ${pet.nome} está de unhas aparadas!`);
 }
 
 const atenderCliente = (pet, funcao) => {
@@ -152,8 +152,8 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-atenderCliente(bancoDados.pets[0], darBanho);
-console.log(bancoDados.pets[0].servicos);
+atenderCliente(bancoDados.pets[4], apararUnhasPet);
+console.log(bancoDados.pets[4].servicos);
 
 // const vacinarPets = (pet) => {
     
