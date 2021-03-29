@@ -1,6 +1,8 @@
 const moment = require('moment'); // require
-var bancoDados = require('./dadosPet.json');
-let pets = bancoDados.pets;
+
+const fs = require('fs');
+let bancoDados = fs.readFileSync('./dadosPet.json');
+bancoDados = JSON.parse(bancoDados);
 
 const nomePetshp = 'Petshop Avanade';
 
@@ -68,20 +70,20 @@ const nomePetshp = 'Petshop Avanade';
     //BASICAMENTE VOCE TA ADD UM OBJETO NO ARQUIVO JSON, O QUE EH O CORRETO
     //PORQUE ARQUIVOS JSON SAO ARQUIVOS QUE LISTAM OBJETOS, ENTAO NAO PRECISA DO STRINGFY
 
-    // pets.push(pet);
+    // bancoDados.pets.push(pet);
     //console.log(pets); //LISTANDO ESTILO JSON
 //}
 //adicionarPet();
 
 // const listarPets = () => {
-//     for(let pet of pets){
+//     for(let pet of bancoDados.pets){
 //         //console.log(pets[i].nome);
 //         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
 //     }
 // }/
 
 const listarPets = () => {
-    for(let pet of pets){
+    for(let pet of bancoDados.pets){
         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`); //lembrar da crase
         
         // for(const servico of pet.servicos){
@@ -131,8 +133,8 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-atenderCliente(pets[1], darBanho);
-console.log(pets[1].servicos);
+atenderCliente(bancoDados.pets[1], darBanho);
+console.log(bancoDados.pets[1].servicos);
 
 // const vacinarPets = (pet) => {
     
@@ -145,12 +147,12 @@ console.log(pets[1].servicos);
 //             console.log(`\nOpa, ${pet.nome} foi Vacinado`);
 // }
 
-// vacinarPets(pets[2]);
+// vacinarPets(bancoDados.pets[2]);
 
 // const campanhaVacina = () => {
    
 //     let i=0;
-//     for(let pet of pets)
+//     for(let pet of bancoDados.pets)
 //     {
 //         if(pet.vacinado == false)
 //         {
@@ -169,18 +171,18 @@ console.log(pets[1].servicos);
 //     console.log(`\n${pet.nome} está de banho tomado!`);
 // }
 
-// darBanhoPet(pets[3]);
+// darBanhoPet(bancoDados.pets[3]);
 
 
-// for(let pet of pets)
+// for(let pet of bancoDados.pets)
 // {
 //     console.log(pet.servicos);
 // }
 
 
 //FUNCAO DE PESQUISA DE ANGELO!
-//const vacinarPet = (petNome) => {
-//     let pet = pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
+// const vacinarPet = (petNome) => {
+//     let pet = bancoDados.pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
 //     if(pet.vacinado == false){
 //         pet.vacinado = true;
 //         console.log(`\n\n${pet.nome} foi vacinado com sucesso!`);
