@@ -75,12 +75,12 @@ const nomePetshp = 'Petshop Avanade';
 //}
 //adicionarPet();
 
-// const listarPets = () => {
-//     for(let pet of bancoDados.pets){
-//         //console.log(pets[i].nome);
-//         console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca};`); //lembrar da crase
-//     }
-// }/
+const atualizarBanco = () => {
+    //conversao de objeto javascript para JSON
+    let petsAtualizado = JSON.stringify(bancoDados);
+    //atualização do arquivo dadosPet.json
+    fs.writeFileSync('dadosPet.jason', petsAtualizado, 'utf-8');
+}
 
 const listarPets = () => {
     for(let pet of bancoDados.pets){
@@ -90,11 +90,11 @@ const listarPets = () => {
         //     console.log(`${servico.data} - ${servico.tipoServ}`);
         // }
 
-        (pet.vacinado) ? console.log("Vacinado;\n") : console.log("Não vacinado;\n");
+        (pet.vacinado) ? console.log("vacinado;\n") : console.log("não vacinado;\n");
     }
 }
 
-//listarPets(); // LISTANDO BONITINHO
+listarPets(); // LISTANDO BONITINHO
 
 const darBanho = (pet) => {
     let servico = { 
