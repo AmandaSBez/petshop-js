@@ -136,12 +136,13 @@ const tosarPet = (pet) => {
 }
 
 const apararUnhasPet = (pet) => {
+    let dataHoje = moment().format('DD-MM-YYYY');
     pet.servicos.push({ 
         tipoServ: 'corte de unhas',
-        data: moment().format('DD-MM-YYYY')    
+        data: dataHoje    
     });
     atualizarBanco();  
-    console.log(`${pet.servicos.data} : ${pet.nome} está de unhas aparadas!`);
+    console.log(`${dataHoje} : ${pet.nome} está de unhas aparadas!`);
 }
 
 const atenderCliente = (pet, funcao) => {
