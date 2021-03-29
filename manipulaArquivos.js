@@ -22,4 +22,3 @@ bancoDados.pets.push({
 
         let petsAtualizado = JSON.stringify(bancoDados);
         fs.writeFileSync('dadosPet.json', petsAtualizado, 'utf-8');
-        

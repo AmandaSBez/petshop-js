@@ -79,7 +79,7 @@ const atualizarBanco = () => {
     //conversao de objeto javascript para JSON
     let petsAtualizado = JSON.stringify(bancoDados);
     //atualização do arquivo dadosPet.json
-    fs.writeFileSync('dadosPet.jason', petsAtualizado, 'utf-8');
+    fs.writeFileSync('dadosPet.json', petsAtualizado, 'utf-8');
 }
 
 const listarPets = () => {
@@ -95,6 +95,24 @@ const listarPets = () => {
 }
 
 listarPets(); // LISTANDO BONITINHO
+
+const adicionarPet = novoPet => {
+    bancoDados.pets.push(novoPet);
+    atualizarBanco();
+    console.log(`${novoPet.nome} foi adicionado com sucesso!`);
+}
+
+adicionarPet({
+    "nome": "Miau",
+    "tipo": "gato",
+    "idade": 1,
+    "raca": "Siamês",
+    "peso": 2,
+    "tutor": "Magali",
+    "contato": "(81) 9374-7109",
+    "vacinado": true,
+    "servicos": []    
+});
 
 const darBanho = (pet) => {
     let servico = { 
@@ -133,8 +151,8 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-atenderCliente(bancoDados.pets[1], darBanho);
-console.log(bancoDados.pets[1].servicos);
+//atenderCliente(bancoDados.pets[1], darBanho);
+//console.log(bancoDados.pets[1].servicos);
 
 // const vacinarPets = (pet) => {
     
