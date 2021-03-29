@@ -102,25 +102,26 @@ const adicionarPet = novoPet => {
     console.log(`${novoPet.nome} foi adicionado com sucesso!`);
 }
 
-adicionarPet({
-    "nome": "Miau",
-    "tipo": "gato",
-    "idade": 1,
-    "raca": "Siamês",
-    "peso": 2,
-    "tutor": "Magali",
-    "contato": "(81) 9374-7109",
-    "vacinado": true,
-    "servicos": []    
-});
+// adicionarPet({
+//     "nome": "Miau",
+//     "tipo": "gato",
+//     "idade": 1,
+//     "raca": "Siamês",
+//     "peso": 2,
+//     "tutor": "Magali",
+//     "contato": "(81) 9374-7109",
+//     "vacinado": true,
+//     "servicos": []    
+// });
 
 const darBanho = (pet) => {
-    let servico = { 
-        tipoServ: 'Banho',
+    pet.servicos.push({ 
+        tipoServ: 'banho',
         data: moment().format('DD-MM-YYYY')
-    };
-    pet.servicos.push(servico);
-    console.log(`${servico.data} : dando banho no pet...`);
+    });
+    
+    atualizarBanco();
+    console.log(`${pet.servicos.data} : dando banho no pet...`);
 }
 
 const tosarPet = (pet) => {
@@ -151,8 +152,8 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-//atenderCliente(bancoDados.pets[1], darBanho);
-//console.log(bancoDados.pets[1].servicos);
+atenderCliente(bancoDados.pets[0], darBanho);
+console.log(bancoDados.pets[0].servicos);
 
 // const vacinarPets = (pet) => {
     
