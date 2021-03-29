@@ -50,29 +50,28 @@ const nomePetshp = 'Petshop Avanade';
 
 //Usando Arrow Functions:
 
-let adicionarPet = () => {
-    let pet =
-        {
-            nome: 'Perna-longa',
-            tipo: 'coelho',
-            idade: 2,
-            raca: 'Mini Holandês',
-            peso: 2,
-            tutor: 'Maria',
-            contato: '(81) 99685-8709',
-            vacinado: false,
-            servicos: [
-                {tipoServ:'corte de unhas', data:'3-10-2021'}
-            ]    
-        };
+// let adicionarPet = () => {
+//     let pet =
+//         {
+//             nome: 'Perna-longa',
+//             tipo: 'coelho',
+//             idade: 2,
+//             raca: 'Mini Holandês',
+//             peso: 2,
+//             tutor: 'Maria',
+//             contato: '(81) 99685-8709',
+//             vacinado: false,
+//             servicos: [
+//                 {tipoServ:'corte de unhas', data:'3-10-2021'}
+//             ]    
+//         };
     //BASICAMENTE VOCE TA ADD UM OBJETO NO ARQUIVO JSON, O QUE EH O CORRETO
     //PORQUE ARQUIVOS JSON SAO ARQUIVOS QUE LISTAM OBJETOS, ENTAO NAO PRECISA DO STRINGFY
 
-    pets.push(pet);
+    // pets.push(pet);
     //console.log(pets); //LISTANDO ESTILO JSON
-}
-
-adicionarPet();
+//}
+//adicionarPet();
 
 // const listarPets = () => {
 //     for(let pet of pets){
