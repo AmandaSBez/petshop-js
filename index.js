@@ -91,6 +91,7 @@ const listarPets = () => {
         // }
 
         (pet.vacinado) ? console.log("vacinado;\n") : console.log("não vacinado;\n");
+        //(parametro a ser estudado) ? alternativa_se_verdadeiro : altervativa_se_falso;
     }
 }
 
@@ -135,14 +136,11 @@ const tosarPet = (pet) => {
 }
 
 const apararUnhasPet = (pet) => {
-    //const now = new Date(); 
     pet.servicos.push({ 
         tipoServ: 'corte de unhas',
-        data: moment().format('DD-MM-YYYY')
-     //   data: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`    
+        data: moment().format('DD-MM-YYYY')    
     });
-     atualizarBanco();  
-  // console.log(`\n${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} : ${pet.nome} está de unhas aparadas!`);   
+    atualizarBanco();  
     console.log(`${pet.servicos.data} : ${pet.nome} está de unhas aparadas!`);
 }
 
