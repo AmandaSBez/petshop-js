@@ -116,6 +116,13 @@ const buscarPet = (nomepet) => {
     return petEncontrado ? petEncontrado : `Não tem pet com o nome ${pet} no sistema`;
 }
 
+const filtrarTipoPet = (tipoPet) => {
+    let petsEncontrados = bancoDados.pets.filter((pet) => {
+        return pet.tipo == tipoPet;
+    });
+    return petsEncontrados;
+}
+
 const darBanho = (pet) => {
     pet.servicos.push({ 
         tipoServ: 'banho',
