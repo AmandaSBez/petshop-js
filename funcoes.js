@@ -21,6 +21,18 @@ const apararUnhasPet = () => {
     console.log('aparando unhas...');
 }
 
-atenderCliente(pets[0], darBanho);
-console.log("---------------");
-atenderCliente(pets[2]);
+// atenderCliente(pets[0], darBanho);
+// console.log("---------------");
+// atenderCliente(pets[2]);
+
+let pessoa = {
+    nome: 'Iago',
+    idade: 25,
+    profissao: 'dev',
+    contato: '(11)9999-9999',
+    habilidades: ['node.js', 'mysql','html']
+} 
+
+let {nome, contato} = pessoa;
+
+console.log(`${nome} - ${contato}`);

@@ -150,12 +150,21 @@ const atenderCliente = (pet, funcao) => {
 }
 
 const clientePremium = (pet) => {
+    let {nome} = pet;
     let nServ = pet.servicos.length;
 
     if(nServ > 3)
-        console.log(`Olá, ${pet.tutor}! Você ganhou um descontão!`);
+        console.log(`Olá, ${nome}! Você ganhou um descontão!`);
     else
-        console.log(`Olá, ${pet.tutor}, você ainda não tem descontos disponíveis!`);
+        console.log(`Olá, ${nome}, você ainda não tem descontos disponíveis!`);
+}
+
+const contatoTutor = (pet) => {
+    let {nome, tutor, contato} = pet;
+
+    return `Tutor: ${tutor}
+            Contato: ${contato}
+            Pet: ${nome}`;
 }
 
 const vacinarPets = (pet) => {
@@ -206,7 +215,8 @@ const campanhaVacina = () => {
 //campanhaVacina();
 //console.log(buscarPet('Orion'));
 //console.log(filtrarTipoPet('cachorro'));
-clientePremium(bancoDados.pets[4]);
+//clientePremium(bancoDados.pets[4]);
+console.log(contatoTutor(bancoDados.pets[0]));
 
 
 
