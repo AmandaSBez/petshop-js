@@ -151,38 +151,42 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-atenderCliente(bancoDados.pets[4], apararUnhasPet);
-console.log(bancoDados.pets[4].servicos);
+//atenderCliente(bancoDados.pets[4], apararUnhasPet);
+//console.log(bancoDados.pets[4].servicos);
 
-// const vacinarPets = (pet) => {
+const vacinarPets = (pet) => {
     
-//         if(pet.vacinado == false)
-//         {
-//             pet.vacinado = true;
-//             console.log(`\n${pet.nome} foi vacinado com sucesso!`);
-//         }
-//         else
-//             console.log(`\nOpa, ${pet.nome} foi Vacinado`);
-// }
+        if(!pet.vacinado)
+        {
+            pet.vacinado = true;
+            atualizarBanco();
+            console.log(`\n${pet.nome} foi vacinado com sucesso!`);
+        }
+        else
+            console.log(`\nOpa, ${pet.nome} já foi Vacinado`);
+}
 
-// vacinarPets(bancoDados.pets[2]);
+//vacinarPets(bancoDados.pets[2]);
 
-// const campanhaVacina = () => {
-   
-//     let i=0;
-//     for(let pet of bancoDados.pets)
-//     {
-//         if(pet.vacinado == false)
-//         {
-//             pet.vacinado = true;
-//             i++;         
-//         }
-//     }
+const campanhaVacina = () => {
+    console.log("Campanha de vacina 2021");
+    console.log("vacinando...");
+
+    let i = 0;
+    bancoDados.pets = bancoDados.pets.map((pet) => {
     
-//     console.log(`\n${i} pets foram vacinados nessa campanha!`);
-// }
+        if(!pet.vacinado) 
+        {
+            vacinarPets(pet);
+           i++;         
+        }
+        return pet;
+    });
+    atualizarBanco();
+    console.log(`\n${i} pets foram vacinados nessa campanha!`);
+}
 
-// campanhaVacina();
+campanhaVacina();
 
 // const darBanhoPet = (pet) => {
 //     pet.servicos.push('banho');
