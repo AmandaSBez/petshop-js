@@ -167,6 +167,16 @@ const contatoTutor = (pet) => {
             Pet: ${nome}`;
 }
 
+const filtrarTutor = (nomeTutor) => {
+    let petsTutor = bancoDados.pets.filter((pet) => {
+        return pet.tutor == nomeTutor;
+    });
+    console.log(`Pets do Tutor ${nomeTutor}:`)
+    petsTutor.forEach((pet) => {
+        console.log(`${pet.nome} - ${pet.tipo}`);
+    })
+}
+
 const vacinarPets = (pet) => {
     
         if(!pet.vacinado)
@@ -197,17 +207,17 @@ const campanhaVacina = () => {
     console.log(`\n${i} pets foram vacinados nessa campanha!`);
 }
 
-// adicionarPet({
-//     "nome": "Miau",
-//     "tipo": "gato",
-//     "idade": 1,
-//     "raca": "Siamês",
-//     "peso": 2,
-//     "tutor": "Magali",
-//     "contato": "(81) 9374-7109",
-//     "vacinado": true,
-//     "servicos": []    
-// });
+adicionarPet({
+    "nome": "Bolinha",
+    "tipo": "gato",
+    "idade": 1,
+    "raca": "vira-lata",
+    "peso": 2,
+    "tutor": "Tom",
+    "contato": "(81) 9374-7109",
+    "vacinado": true,
+    "servicos": []    
+});
 //atenderCliente(bancoDados.pets[4], apararUnhasPet);
 //console.log(bancoDados.pets[4].servicos);
 //vacinarPets(bancoDados.pets[2]);
@@ -216,7 +226,8 @@ const campanhaVacina = () => {
 //console.log(buscarPet('Orion'));
 //console.log(filtrarTipoPet('cachorro'));
 //clientePremium(bancoDados.pets[4]);
-console.log(contatoTutor(bancoDados.pets[0]));
+//console.log(contatoTutor(bancoDados.pets[0]));
+filtrarTutor('Tom');
 
 
 
