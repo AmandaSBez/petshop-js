@@ -84,14 +84,10 @@ const atualizarBanco = () => {
 
 const listarPets = () => {
     for(let pet of bancoDados.pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`); //lembrar da crase
-        
-        // for(const servico of pet.servicos){
-        //     console.log(`${servico.data} - ${servico.tipoServ}`);
-        // }
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`);
 
         (pet.vacinado) ? console.log("vacinado;\n") : console.log("não vacinado;\n");
-        //(parametro a ser estudado) ? alternativa_se_verdadeiro : altervativa_se_falso;
+       
     }
 }
 
@@ -195,14 +191,7 @@ campanhaVacina();
 
 // darBanhoPet(bancoDados.pets[3]);
 
-
-// for(let pet of bancoDados.pets)
-// {
-//     console.log(pet.servicos);
-// }
-
-
-//FUNCAO DE PESQUISA DE ANGELO!
+//FUNCAO DE PESQUISA
 // const vacinarPet = (petNome) => {
 //     let pet = bancoDados.pets.find(findPet => findPet.nome == petNome); // Function para pesquisar pelo nome do pet no array.
 //     if(pet.vacinado == false){
@@ -216,8 +205,7 @@ campanhaVacina();
 
 // vacinarPet(petNome = 'Orion');
 
-//Mostrar com seria em JSON:
-
+//Mostrar como seria em JSON:
 //let testeJson = JSON.stringify(pets);
 //console.log(testeJson);
 //console.log(bancoDados.pets[1]);
