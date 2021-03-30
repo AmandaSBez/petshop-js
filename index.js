@@ -83,12 +83,14 @@ const atualizarBanco = () => {
 }
 
 const listarPets = () => {
-    for(let pet of bancoDados.pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`);
-
-        (pet.vacinado) ? console.log("vacinado;\n") : console.log("não vacinado;\n");
+   bancoDados.pets.forEach((pet) => {
+        console.log(`\n${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca},`);
+        (pet.vacinado) ? console.log("vacinado.") : console.log("não vacinado.");
        
-    }
+        pet.servicos.forEach((servico) => {
+            console.log(`${servico.data} : ${servico.tipoServ}`);
+        })
+    })
 }
 
 const adicionarPet = novoPet => {
@@ -96,18 +98,6 @@ const adicionarPet = novoPet => {
     atualizarBanco();
     console.log(`${novoPet.nome} foi adicionado com sucesso!`);
 }
-
-// adicionarPet({
-//     "nome": "Miau",
-//     "tipo": "gato",
-//     "idade": 1,
-//     "raca": "Siamês",
-//     "peso": 2,
-//     "tutor": "Magali",
-//     "contato": "(81) 9374-7109",
-//     "vacinado": true,
-//     "servicos": []    
-// });
 
 const buscarPet = (nomepet) => {
     let petEncontrado = bancoDados.pets.find((pet) => {
@@ -159,8 +149,14 @@ const atenderCliente = (pet, funcao) => {
     console.log("Fim do atendimento");
 }
 
-//atenderCliente(bancoDados.pets[4], apararUnhasPet);
-//console.log(bancoDados.pets[4].servicos);
+const clientePremium = (pet) => {
+    let nServ = pet.servicos.length;
+
+    if(nServ > 3)
+        console.log(`Olá, ${pet.tutor}! Você ganhou um descontão!`);
+    else
+        console.log(`Olá, ${pet.tutor}, você ainda não tem descontos disponíveis!`);
+}
 
 const vacinarPets = (pet) => {
     
@@ -173,8 +169,6 @@ const vacinarPets = (pet) => {
         else
             console.log(`\nOpa, ${pet.nome} já foi Vacinado`);
 }
-
-//vacinarPets(bancoDados.pets[2]);
 
 const campanhaVacina = () => {
     console.log("Campanha de vacina 2021");
@@ -194,9 +188,27 @@ const campanhaVacina = () => {
     console.log(`\n${i} pets foram vacinados nessa campanha!`);
 }
 
+// adicionarPet({
+//     "nome": "Miau",
+//     "tipo": "gato",
+//     "idade": 1,
+//     "raca": "Siamês",
+//     "peso": 2,
+//     "tutor": "Magali",
+//     "contato": "(81) 9374-7109",
+//     "vacinado": true,
+//     "servicos": []    
+// });
+//atenderCliente(bancoDados.pets[4], apararUnhasPet);
+//console.log(bancoDados.pets[4].servicos);
+//vacinarPets(bancoDados.pets[2]);
 //listarPets(); // LISTANDO BONITINHO
 //campanhaVacina();
-console.log(buscarPet('Orion'));
+//console.log(buscarPet('Orion'));
+//console.log(filtrarTipoPet('cachorro'));
+clientePremium(bancoDados.pets[4]);
+
+
 
 // const darBanhoPet = (pet) => {
 //     pet.servicos.push('banho');
