@@ -91,8 +91,6 @@ const listarPets = () => {
     }
 }
 
-listarPets(); // LISTANDO BONITINHO
-
 const adicionarPet = novoPet => {
     bancoDados.pets.push(novoPet);
     atualizarBanco();
@@ -110,6 +108,13 @@ const adicionarPet = novoPet => {
 //     "vacinado": true,
 //     "servicos": []    
 // });
+
+const buscarPet = (nomepet) => {
+    let petEncontrado = bancoDados.pets.find((pet) => {
+        return pet.nome == nomepet;
+    });
+    return petEncontrado ? petEncontrado : `Não tem pet com o nome ${pet} no sistema`;
+}
 
 const darBanho = (pet) => {
     pet.servicos.push({ 
@@ -182,7 +187,9 @@ const campanhaVacina = () => {
     console.log(`\n${i} pets foram vacinados nessa campanha!`);
 }
 
-campanhaVacina();
+//listarPets(); // LISTANDO BONITINHO
+//campanhaVacina();
+console.log(buscarPet('Orion'));
 
 // const darBanhoPet = (pet) => {
 //     pet.servicos.push('banho');
