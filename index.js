@@ -95,10 +95,15 @@ const listarPets = () => {
     })
 }
 
-const adicionarPet = novoPet => {
-    bancoDados.pets.push(novoPet);
+const adicionarPet = (...novosPets) => {
+    novosPets.forEach((novoPet) => {
+        bancoDados.pets.push(novoPet);
+    })
+
     atualizarBanco();
-    console.log(`${novoPet.nome} foi adicionado com sucesso!`);
+    novosPets.forEach((novoPet) => {
+        console.log(`${novoPet.nome} foi adicionado com sucesso!`); //TA DANDO UNDEFINED!
+    })
 }
 
 const buscarPet = (nomepet) => {
@@ -209,21 +214,32 @@ const campanhaVacina = () => {
     console.log(`\n${i} pets foram vacinados nessa campanha!`);
 }
 
-// adicionarPet({
-//     "nome": "Bolinha",
-//     "tipo": "gato",
-//     "idade": 1,
-//     "raca": "vira-lata",
-//     "peso": 2,
-//     "tutor": "Tom",
-//     "contato": "(81) 9374-7109",
-//     "vacinado": true,
-//     "servicos": []    
-// });
+adicionarPet([{
+    "nome": "Bolinha",
+    "tipo": "gato",
+    "idade": 1,
+    "raca": "vira-lata",
+    "peso": 3,
+    "tutor": "Tom",
+    "contato": "(81) 9374-7109",
+    "vacinado": true,
+    "servicos": []    
+},
+{
+    "nome": "Bidu",
+    "tipo": "cachorro",
+    "idade": 10,
+    "raca": "schnauzer",
+    "peso": 5,
+    "tutor": "Monica",
+    "contato": "(81) 8888-8989",
+    "vacinado": true,
+    "servicos": []     
+}]);
 //atenderCliente(bancoDados.pets[4], apararUnhasPet);
 //console.log(bancoDados.pets[4].servicos);
 //vacinarPets(bancoDados.pets[2]);
-listarPets(); // LISTANDO BONITINHO
+//listarPets(); // LISTANDO BONITINHO
 //campanhaVacina();
 //console.log(buscarPet('Orion'));
 //console.log(filtrarTipoPet('cachorro'));
